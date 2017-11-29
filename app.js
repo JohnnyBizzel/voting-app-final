@@ -42,9 +42,8 @@ mongoose.connect(dbUrl, function(err, res){
 var app = express();
 
 app.use(favicon(path.join(__dirname, 'public/images/favicon.png')));
+
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'hjs');
 // VIEW ENGINE CHANGED:::
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({ defaultLayout:'layout'}));
@@ -58,16 +57,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// // -------------------- ADDED auth0 sample
-// // Session middleware
-// app.use(session({
-//   secret: 'shh54321',
-//   resave: true,
-//   saveUninitialized: true
-// }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-//---------------- END of ADDED auth0 sample
 
 // Vlad code: load passport strategies
 const localSignupStrategy = require('./passport/local-signup');
