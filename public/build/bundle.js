@@ -122,19 +122,6 @@
 	      } })
 	  )
 	), mountNode);
-	
-	/*
-	      <Route path="logout" onEnter={(nextState, replace) => {
-	      Auth.deauthenticateUser();
-	      
-	      console.log('Logging out src/app.js');
-	      Auth.clearCookie();
-	      // change the current URL to /
-	      
-	      replace('/');
-	        location.reload();
-	      }} />
-	*/
 
 /***/ },
 /* 1 */

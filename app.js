@@ -4,15 +4,15 @@ require('@risingstack/trace');
 var express = require('express');
 var expressValidator = require('express-validator'); // new
 var exphbs = require('express-handlebars'); // new
-var flash = require("connect-flash");
+//var flash = require("connect-flash");
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-var session = require('express-session');
+//var session = require('express-session');
 var dotenv = require('dotenv');
 var passport = require('passport');
-var LocalStragegy = require('passport-local').Stragegy;  // new
+//var LocalStragegy = require('passport-local').Stragegy;  // new
 
 // your application's code
 var bodyParser = require('body-parser');
