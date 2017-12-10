@@ -1,3 +1,4 @@
+<a href="/">Home</a>
 <h2 class="page-header">Register</h2>
 {{#if errors}}
       {{#each errors}}
@@ -5,26 +6,108 @@
       {{/each}}
 {{/if}}
 
-<form method="post" action="/auth/signup">
-   <div class="form-group">
-    <label>Name</label>
-    <input type="text" class="form-control" placeholder="Name" name="name">
+<div class="container">
+  <div class="row">
+    <section class="col-xs-12">
+        <form class="form-horizontal" method="post" action="/auth/signup">
+            <div id="fgName" class="form-group has-feedback">
+                <label class="col-sm-2 control-label" for="inputName">Name</label>
+                <div class="col-sm-6">
+                    <input id="inputName" type="text" class="form-control" placeholder="Your name" name="name" required aria-describedby="nameStatus">
+                    <span id="nameFeedback" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <span id="nameStatus" class="sr-only">(success)</span>
+                </div>
+            </div>
+            <div id="fgUser" class="form-group">
+                <label class="col-sm-2 control-label" for="inputUsername">Username (optional)</label>
+                <div class="col-sm-6">
+                    <input type="text" id="inputUsername"  type="text" class="form-control" placeholder="User name" name="username">
+                    <span id="unameFeedback" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <span id="unameStatus" class="sr-only">(success)</span>
+                </div>
+            </div>
+            <div id="fgEmail" class="form-group has-feedback">
+                <label for="inputEmail" class="col-sm-2 control-label">E-mail</label>
+                <div class="col-sm-6">
+                    <input id="inputEmail" type="email" class="form-control" placeholder="Email address" name="email" required>
+                    <span id="emailFeedback" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <span id="emailStatus" class="sr-only">(success)</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">Password (6 char min)</label>
+                <div class="col-sm-6">
+                    <input id="inputPassword" type="password" class="form-control" placeholder="Password" name="password" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password2" class="col-sm-2 control-label">Confirm Password</label>
+                <div class="col-sm-6">
+                    <input id="inputPassword2" type="password" class="form-control" placeholder="Password" name="password2" required >
+                </div>                    
+            </div>
+            <div class="form-group">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <!--input id="btnSubmit" type="submit" value="Submit" class="btn btn-success"-->
+                    <button id="btnSubmit" type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+            
+        </form>
+    </section>
   </div>
-  <div class="form-group">
-    <label>Username</label>
-    <input type="text" class="form-control" placeholder="Username" name="username">
-  </div>
-   <div class="form-group">
-    <label>Email</label>
-    <input type="email" class="form-control" placeholder="Email" name="email">
-  </div>
-  <div class="form-group">
-    <label>Password</label>
-    <input type="password" class="form-control" placeholder="Password" name="password">
-  </div>
-  <div class="form-group">
-    <label>Confirm Password</label>
-    <input type="password" class="form-control" placeholder="Password" name="password2">
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+  <!-- row -->
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script >
+    function checkName() {
+   var nam = $('#inputName').val();
+      if(nam == '') {
+        $('#fgName').addClass('has-error');
+        $('#fgName').removeClass('has-success');
+        $('#nameFeedback').addClass('glyphicon-remove');
+        $('#nameFeedback').removeClass('glyphicon-ok');
+        
+      } else {
+        $('#fgName').removeClass('has-error');
+        $('#fgName').addClass('has-success');
+        $('#nameFeedback').addClass('glyphicon-ok');
+        $('#nameFeedback').removeClass('glyphicon-remove');
+      };
+}
+function validateEmail(email) {
+  var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+[^<>()\.,;:\s@\"]{2,})$/;
+  return re.test(email);
+}
+
+function checkEmail() {
+  var emailEntered = $('#inputEmail').val();
+      if(emailEntered == '' || !validateEmail(emailEntered)) {
+          console.log('Email invalid');
+         $('#fgEmail').addClass('has-error');
+        $('#fgEmail').removeClass('has-success');
+        $('#emailFeedback').addClass('glyphicon-remove');
+        $('#emailFeedback').removeClass('glyphicon-ok');
+      } else {
+          console.log('Email OK :)');
+        $('#fgEmail').removeClass('has-error');
+        $('#fgEmail').addClass('has-success');
+        $('#emailFeedback').addClass('glyphicon-ok');
+        $('#emailFeedback').removeClass('glyphicon-remove');
+      };
+}
+
+$(document).ready(function() {
+//   $('#btnSubmit').click(function(e) {
+//      e.preventDefault();
+//       checkName();
+//       checkEmail();
+//   });           
+   $('#inputName').keyup(function() {
+      checkName();
+   }); 
+   $('#inputEmail').keyup(function() {
+      checkEmail();
+   }); 
+});
+</script>

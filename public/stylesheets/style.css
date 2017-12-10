@@ -25,11 +25,43 @@ nav ul, nav li {
 #footer {
    position:fixed;
    left:0px;
-   bottom:0px;
-   height:50px;
+   bottom: -20em;
    width:100%;
    background:#e0e0e0;
-   text-align: center
+   text-align: center;
+   z-index: 9999;
+   transition: bottom 0.2s ease;
+}
+
+#footer .show {
+			bottom: 0;
+			height: 50px;
+		}
+
+#footer .info {
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	border-radius: 50% 50% 0 0;
+	background: #42659A;
+	width: 3em;
+	height: 3em;
+	margin-bottom: -1.75em;
+	color: #FFF;
+	font-size: 1.25em;
+	padding-top: .35em;
+}
+
+#footer .info span {
+	display: none;
+}
+
+#footer .details {
+	position: relative;
+	z-index: 10003;
+	background: #e74c3c;
+	padding: 2em;
+	height: 10em;
 }
 
 .navbar-header ul li a:not(.button) {

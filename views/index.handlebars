@@ -1,25 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{{ title }}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
     <a href="/">Home</a>
     <div id="root"></div>
-    <script type="text/javascript" src="/build/bundle.js"></script>
-    <div id="footer">
+  <script type="text/javascript" src="/build/bundle.js"></script>
+  <footer id="footer">
+    <a href="#" id="more-lnk" class="info fa fa-info-circle" onclick="showDetail()"><span>About</span></a>
+    <div class="inner">
     Coded by: <a href="https://www.freecodecamp.org/johnnybizzel">Johnny Bizzel</a> @
     <br/>
-    <img src="https://www.freecodecamp.com/design-style-guide/img/freeCodeCamp.svg" 
+    <img src="https://d33wubrfki0l68.cloudfront.net/4ba4ee4d1ac4caf5c0c3fa44ccc8fddd5bd11222/3f5b1/img/freecodecamp-alternative.png" 
     style="width: 180px">
+    <br/>
+    <a href="#" id="hide" onclick='hideDetail()'>[X]</a>
     </div>
-  </body>
-</html>
+  </footer>
+  <script type="text/javascript">
+  function showDetail() {
+    var more = document.getElementById('more-lnk');
+    more.style.display = 'none';
+    document.getElementById('more-detail').style.display = 'block';
+  }
+  
+  function hideDetail() {
+    document.getElementById('more-lnk').style.display = 'block';
+    document.getElementById('more-detail').style.display = 'none';
+  }
+  </script>
